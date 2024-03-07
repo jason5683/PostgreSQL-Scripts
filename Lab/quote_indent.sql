@@ -1,0 +1,5 @@
+CREATE TABLE "MyActor"
+AS
+SELECT * FROM actor;
+
+SELECT QUOTE_IDENT('Myactor');

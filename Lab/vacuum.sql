@@ -1,0 +1,8 @@
+﻿VACUUM VERBOSE;
+
+SELECT *
+FROM film1
+WHERE film1_id < 100;
+
+DELETE FROM film1
+WHERE film1_id < 100;

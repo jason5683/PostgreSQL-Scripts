@@ -1,0 +1,10 @@
+1. \du listed users to see if they exsist
+2. Create users
+John Fansler = 
+	CREATE USER jfansler; 
+			WITH PASSWORD 'test';	
+Chaitanya Yerra =
+	CREATE USER cyerra; 
+			WITH PASSWORD 'test';	
+GRANT readonly to jfansler, cyerra;
+

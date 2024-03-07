@@ -1,0 +1,47 @@
+
+```
+psql postgressql://myuser:mypassword@myhost:5432/mydb
+psql -h myhost -p 5432 -d mydb -U myuser
+psql postgresql://myuser@myhost:5432/mydb
+psql -c "Select current_time" 
+psql -f examples.sql
+psql --version
+```
+
+```
+\d\dn
+\x
+\timming
+\copy
+\i
+\o
+
+```
+
+
+\conninfo
+```
+SELECT current_database();
+SELECT current_user;
+SELECT inet_server_addr(), inet_server_port();
+SELECT version();
+SHOW server_version;
+SHOW server_version_num
+SELECT date_trunc('second', current_timestamp - pg_postmaster_start_time()) as uptime;
+SELECT pg_postmaster_start_time(); 
+SELECT current_timestamp - pg_postmaster_start_time() as uptime;
+SELECT date_trunc('second', current_timestamp - pg_postmaster_start_time()) as uptime;
+
+```
+-- Locating the database server files
+SHOW data_directory;
+
+-- List databases on database server
+psql -l
+select dataname from pg_database; 
+SELECT COUNT(*) FROM information_schema.tables;
+
+
+
+pg_reload_conf()
+```

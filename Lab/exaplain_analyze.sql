@@ -1,0 +1,21 @@
+﻿SELECT *
+FROM film;
+
+EXPLAIN ANALYZE SELECT *
+FROM film;
+
+EXPLAIN ANALYZE SELECT *
+FROM film
+WHERE film_id > 40;
+
+EXPLAIN ANALYZE SELECT *
+FROM film
+WHERE film_id < 40;
+
+EXPLAIN ANALYZE SELECT *
+FROM film
+WHERE film_id > 40 AND rating = 'PG-13';
+
+EXPLAIN ANALYZE SELECT *
+FROM film
+WHERE film_id < 40 AND rating = 'PG-13';

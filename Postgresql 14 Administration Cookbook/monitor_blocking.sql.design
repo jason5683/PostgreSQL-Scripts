@@ -1,0 +1,792 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Devart (www.devart.com), SQL document design file -->
+<!-- Modifying this generated file will probably render it invalid -->
+<Document>
+  <Properties>
+    <Type>SQL Document Design</Type>
+    <DatabaseProvider>77a9b459-6f15-4675-8e18-cdd88f58e376</DatabaseProvider>
+    <ProviderVersion>3.0.472.0</ProviderVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+  </Properties>
+  <Connection>
+    <ConnectionModel>
+      <PropertyValue Name="Database">77a9b459-6f15-4675-8e18-cdd88f58e376</PropertyValue>
+      <PropertyValue Name="Id">9cb2d26a-23d6-49da-8766-9180de2b82e6</PropertyValue>
+      <PropertyValue Name="ConnectionString" xml:space="preserve">User Id=jlove;Host=localhost;Port=5432;Database=postgres;Unicode=True;Connection Timeout=15;Integrated Security=False</PropertyValue>
+      <PropertyValue Name="ExecutionTimeout">0</PropertyValue>
+    </ConnectionModel>
+    <Database>hamshackradio</Database>
+  </Connection>
+  <Views ShowAdditionalViews="False" IsLayoutActiveAttribute="True" MainViewAttribute="Code" MainViewScale="53">
+    <View Name="Code" Active="True" Visible="True">
+      <Data />
+    </View>
+    <View Name="Data" Visible="True" />
+    <View Name="Profiler" Visible="True">
+      <Data>
+        <ProfilerHistory>
+          <ProfilerResult Date="2023-04-11 08:46:48Z" DisplayName="" Duration="0">
+            <SQL>SELECT psa.datname, psa.usename, psa.wait_event_type, psa.wait_event,psa.backend_type,
+query
+FROM pg_stat_activity psa
+WHERE psa.wait_event_type IS NOT NULL
+AND psa.wait_event_type NOT IN ('Activity', 'Client');</SQL>
+            <Properties>
+              <PropertiesRow>
+                <Name>ConnectionString</Name>
+                <Value>user id=jlove;host=db-server-03.twa.ateb.com;port=5432;database=ateb;unicode=True;connection timeout=15;default command timeout=30;integrated security=False;ssh host=db-access-01.twa.ateb.com;ssh port=22;ssh user=jlove;ssh authentication type=Password</Value>
+              </PropertiesRow>
+              <PropertiesRow>
+                <Name>ServerVersion</Name>
+                <Value>11.8</Value>
+              </PropertiesRow>
+              <PropertiesRow>
+                <Name>ProfilingResultTime</Name>
+                <Value>8:46:48 AM 4/11/2023</Value>
+              </PropertiesRow>
+            </Properties>
+            <Elements>
+              <Element Name="SELECT psa.datname, psa.usename, psa.wait_event_type, psa.wait_event,psa.backend_type,&#xD;&#xA;query&#xD;&#xA;FROM pg_stat_activity psa&#xD;&#xA;WHERE psa.wait_event_type IS NOT NULL&#xD;&#xA;AND psa.wait_event_type NOT IN ('Activity', 'Client');" TextFormat="False"><explain xmlns="http://www.postgresql.org/2009/explain">
+  <Query>
+    <Plan>
+      <Node-Type>Hash Join</Node-Type>
+      <Parallel-Aware>false</Parallel-Aware>
+      <Join-Type>Left</Join-Type>
+      <Startup-Cost>39.35</Startup-Cost>
+      <Total-Cost>50.49</Total-Cost>
+      <Plan-Rows>98</Plan-Rows>
+      <Plan-Width>256</Plan-Width>
+      <Actual-Startup-Time>0.218</Actual-Startup-Time>
+      <Actual-Total-Time>0.221</Actual-Total-Time>
+      <Actual-Rows>2</Actual-Rows>
+      <Actual-Loops>1</Actual-Loops>
+      <Output>
+        <Item>d.datname</Item>
+        <Item>u.rolname</Item>
+        <Item>s.wait_event_type</Item>
+        <Item>s.wait_event</Item>
+        <Item>s.backend_type</Item>
+        <Item>s.query</Item>
+      </Output>
+      <Inner-Unique>true</Inner-Unique>
+      <Hash-Cond>(s.usesysid = u.oid)</Hash-Cond>
+      <Shared-Hit-Blocks>5</Shared-Hit-Blocks>
+      <Shared-Read-Blocks>0</Shared-Read-Blocks>
+      <Shared-Dirtied-Blocks>0</Shared-Dirtied-Blocks>
+      <Shared-Written-Blocks>0</Shared-Written-Blocks>
+      <Local-Hit-Blocks>0</Local-Hit-Blocks>
+      <Local-Read-Blocks>0</Local-Read-Blocks>
+      <Local-Dirtied-Blocks>0</Local-Dirtied-Blocks>
+      <Local-Written-Blocks>0</Local-Written-Blocks>
+      <Temp-Read-Blocks>0</Temp-Read-Blocks>
+      <Temp-Written-Blocks>0</Temp-Written-Blocks>
+      <I-O-Read-Time>0.000</I-O-Read-Time>
+      <I-O-Write-Time>0.000</I-O-Write-Time>
+      <Plans>
+        <Plan>
+          <Node-Type>Hash Join</Node-Type>
+          <Parent-Relationship>Outer</Parent-Relationship>
+          <Parallel-Aware>false</Parallel-Aware>
+          <Join-Type>Left</Join-Type>
+          <Startup-Cost>1.69</Startup-Cost>
+          <Total-Cost>11.80</Total-Cost>
+          <Plan-Rows>98</Plan-Rows>
+          <Plan-Width>196</Plan-Width>
+          <Actual-Startup-Time>0.144</Actual-Startup-Time>
+          <Actual-Total-Time>0.147</Actual-Total-Time>
+          <Actual-Rows>2</Actual-Rows>
+          <Actual-Loops>1</Actual-Loops>
+          <Output>
+            <Item>s.wait_event_type</Item>
+            <Item>s.wait_event</Item>
+            <Item>s.backend_type</Item>
+            <Item>s.query</Item>
+            <Item>s.usesysid</Item>
+            <Item>d.datname</Item>
+          </Output>
+          <Inner-Unique>true</Inner-Unique>
+          <Hash-Cond>(s.datid = d.oid)</Hash-Cond>
+          <Shared-Hit-Blocks>1</Shared-Hit-Blocks>
+          <Shared-Read-Blocks>0</Shared-Read-Blocks>
+          <Shared-Dirtied-Blocks>0</Shared-Dirtied-Blocks>
+          <Shared-Written-Blocks>0</Shared-Written-Blocks>
+          <Local-Hit-Blocks>0</Local-Hit-Blocks>
+          <Local-Read-Blocks>0</Local-Read-Blocks>
+          <Local-Dirtied-Blocks>0</Local-Dirtied-Blocks>
+          <Local-Written-Blocks>0</Local-Written-Blocks>
+          <Temp-Read-Blocks>0</Temp-Read-Blocks>
+          <Temp-Written-Blocks>0</Temp-Written-Blocks>
+          <I-O-Read-Time>0.000</I-O-Read-Time>
+          <I-O-Write-Time>0.000</I-O-Write-Time>
+          <Plans>
+            <Plan>
+              <Node-Type>Function Scan</Node-Type>
+              <Parent-Relationship>Outer</Parent-Relationship>
+              <Parallel-Aware>false</Parallel-Aware>
+              <Function-Name>pg_stat_get_activity</Function-Name>
+              <Schema>pg_catalog</Schema>
+              <Alias>s</Alias>
+              <Startup-Cost>0.01</Startup-Cost>
+              <Total-Cost>9.01</Total-Cost>
+              <Plan-Rows>98</Plan-Rows>
+              <Plan-Width>136</Plan-Width>
+              <Actual-Startup-Time>0.120</Actual-Startup-Time>
+              <Actual-Total-Time>0.122</Actual-Total-Time>
+              <Actual-Rows>2</Actual-Rows>
+              <Actual-Loops>1</Actual-Loops>
+              <Output>
+                <Item>s.datid</Item>
+                <Item>s.pid</Item>
+                <Item>s.usesysid</Item>
+                <Item>s.application_name</Item>
+                <Item>s.state</Item>
+                <Item>s.query</Item>
+                <Item>s.wait_event_type</Item>
+                <Item>s.wait_event</Item>
+                <Item>s.xact_start</Item>
+                <Item>s.query_start</Item>
+                <Item>s.backend_start</Item>
+                <Item>s.state_change</Item>
+                <Item>s.client_addr</Item>
+                <Item>s.client_hostname</Item>
+                <Item>s.client_port</Item>
+                <Item>s.backend_xid</Item>
+                <Item>s.backend_xmin</Item>
+                <Item>s.backend_type</Item>
+                <Item>s.ssl</Item>
+                <Item>s.sslversion</Item>
+                <Item>s.sslcipher</Item>
+                <Item>s.sslbits</Item>
+                <Item>s.sslcompression</Item>
+                <Item>s.sslclientdn</Item>
+              </Output>
+              <Function-Call>pg_stat_get_activity(NULL::integer)</Function-Call>
+              <Filter>((s.wait_event_type IS NOT NULL) AND (s.wait_event_type &lt;&gt; ALL ('{Activity,Client}'::text[])))</Filter>
+              <Rows-Removed-by-Filter>16</Rows-Removed-by-Filter>
+              <Shared-Hit-Blocks>0</Shared-Hit-Blocks>
+              <Shared-Read-Blocks>0</Shared-Read-Blocks>
+              <Shared-Dirtied-Blocks>0</Shared-Dirtied-Blocks>
+              <Shared-Written-Blocks>0</Shared-Written-Blocks>
+              <Local-Hit-Blocks>0</Local-Hit-Blocks>
+              <Local-Read-Blocks>0</Local-Read-Blocks>
+              <Local-Dirtied-Blocks>0</Local-Dirtied-Blocks>
+              <Local-Written-Blocks>0</Local-Written-Blocks>
+              <Temp-Read-Blocks>0</Temp-Read-Blocks>
+              <Temp-Written-Blocks>0</Temp-Written-Blocks>
+              <I-O-Read-Time>0.000</I-O-Read-Time>
+              <I-O-Write-Time>0.000</I-O-Write-Time>
+            </Plan>
+            <Plan>
+              <Node-Type>Hash</Node-Type>
+              <Parent-Relationship>Inner</Parent-Relationship>
+              <Parallel-Aware>false</Parallel-Aware>
+              <Startup-Cost>1.32</Startup-Cost>
+              <Total-Cost>1.32</Total-Cost>
+              <Plan-Rows>4</Plan-Rows>
+              <Plan-Width>68</Plan-Width>
+              <Actual-Startup-Time>0.015</Actual-Startup-Time>
+              <Actual-Total-Time>0.015</Actual-Total-Time>
+              <Actual-Rows>4</Actual-Rows>
+              <Actual-Loops>1</Actual-Loops>
+              <Output>
+                <Item>d.datname</Item>
+                <Item>d.oid</Item>
+              </Output>
+              <Hash-Buckets>1024</Hash-Buckets>
+              <Original-Hash-Buckets>1024</Original-Hash-Buckets>
+              <Hash-Batches>1</Hash-Batches>
+              <Original-Hash-Batches>1</Original-Hash-Batches>
+              <Peak-Memory-Usage>9</Peak-Memory-Usage>
+              <Shared-Hit-Blocks>1</Shared-Hit-Blocks>
+              <Shared-Read-Blocks>0</Shared-Read-Blocks>
+              <Shared-Dirtied-Blocks>0</Shared-Dirtied-Blocks>
+              <Shared-Written-Blocks>0</Shared-Written-Blocks>
+              <Local-Hit-Blocks>0</Local-Hit-Blocks>
+              <Local-Read-Blocks>0</Local-Read-Blocks>
+              <Local-Dirtied-Blocks>0</Local-Dirtied-Blocks>
+              <Local-Written-Blocks>0</Local-Written-Blocks>
+              <Temp-Read-Blocks>0</Temp-Read-Blocks>
+              <Temp-Written-Blocks>0</Temp-Written-Blocks>
+              <I-O-Read-Time>0.000</I-O-Read-Time>
+              <I-O-Write-Time>0.000</I-O-Write-Time>
+              <Plans>
+                <Plan>
+                  <Node-Type>Seq Scan</Node-Type>
+                  <Parent-Relationship>Outer</Parent-Relationship>
+                  <Parallel-Aware>false</Parallel-Aware>
+                  <Relation-Name>pg_database</Relation-Name>
+                  <Schema>pg_catalog</Schema>
+                  <Alias>d</Alias>
+                  <Startup-Cost>0.00</Startup-Cost>
+                  <Total-Cost>1.32</Total-Cost>
+                  <Plan-Rows>4</Plan-Rows>
+                  <Plan-Width>68</Plan-Width>
+                  <Actual-Startup-Time>0.008</Actual-Startup-Time>
+                  <Actual-Total-Time>0.009</Actual-Total-Time>
+                  <Actual-Rows>4</Actual-Rows>
+                  <Actual-Loops>1</Actual-Loops>
+                  <Output>
+                    <Item>d.datname</Item>
+                    <Item>d.oid</Item>
+                  </Output>
+                  <Shared-Hit-Blocks>1</Shared-Hit-Blocks>
+                  <Shared-Read-Blocks>0</Shared-Read-Blocks>
+                  <Shared-Dirtied-Blocks>0</Shared-Dirtied-Blocks>
+                  <Shared-Written-Blocks>0</Shared-Written-Blocks>
+                  <Local-Hit-Blocks>0</Local-Hit-Blocks>
+                  <Local-Read-Blocks>0</Local-Read-Blocks>
+                  <Local-Dirtied-Blocks>0</Local-Dirtied-Blocks>
+                  <Local-Written-Blocks>0</Local-Written-Blocks>
+                  <Temp-Read-Blocks>0</Temp-Read-Blocks>
+                  <Temp-Written-Blocks>0</Temp-Written-Blocks>
+                  <I-O-Read-Time>0.000</I-O-Read-Time>
+                  <I-O-Write-Time>0.000</I-O-Write-Time>
+                </Plan>
+              </Plans>
+            </Plan>
+          </Plans>
+        </Plan>
+        <Plan>
+          <Node-Type>Hash</Node-Type>
+          <Parent-Relationship>Inner</Parent-Relationship>
+          <Parallel-Aware>false</Parallel-Aware>
+          <Startup-Cost>19.84</Startup-Cost>
+          <Total-Cost>19.84</Total-Cost>
+          <Plan-Rows>198</Plan-Rows>
+          <Plan-Width>68</Plan-Width>
+          <Actual-Startup-Time>0.065</Actual-Startup-Time>
+          <Actual-Total-Time>0.065</Actual-Total-Time>
+          <Actual-Rows>198</Actual-Rows>
+          <Actual-Loops>1</Actual-Loops>
+          <Output>
+            <Item>u.rolname</Item>
+            <Item>u.oid</Item>
+          </Output>
+          <Hash-Buckets>1024</Hash-Buckets>
+          <Original-Hash-Buckets>1024</Original-Hash-Buckets>
+          <Hash-Batches>1</Hash-Batches>
+          <Original-Hash-Batches>1</Original-Hash-Batches>
+          <Peak-Memory-Usage>28</Peak-Memory-Usage>
+          <Shared-Hit-Blocks>4</Shared-Hit-Blocks>
+          <Shared-Read-Blocks>0</Shared-Read-Blocks>
+          <Shared-Dirtied-Blocks>0</Shared-Dirtied-Blocks>
+          <Shared-Written-Blocks>0</Shared-Written-Blocks>
+          <Local-Hit-Blocks>0</Local-Hit-Blocks>
+          <Local-Read-Blocks>0</Local-Read-Blocks>
+          <Local-Dirtied-Blocks>0</Local-Dirtied-Blocks>
+          <Local-Written-Blocks>0</Local-Written-Blocks>
+          <Temp-Read-Blocks>0</Temp-Read-Blocks>
+          <Temp-Written-Blocks>0</Temp-Written-Blocks>
+          <I-O-Read-Time>0.000</I-O-Read-Time>
+          <I-O-Write-Time>0.000</I-O-Write-Time>
+          <Plans>
+            <Plan>
+              <Node-Type>Seq Scan</Node-Type>
+              <Parent-Relationship>Outer</Parent-Relationship>
+              <Parallel-Aware>false</Parallel-Aware>
+              <Relation-Name>pg_authid</Relation-Name>
+              <Schema>pg_catalog</Schema>
+              <Alias>u</Alias>
+              <Startup-Cost>0.00</Startup-Cost>
+              <Total-Cost>19.84</Total-Cost>
+              <Plan-Rows>198</Plan-Rows>
+              <Plan-Width>68</Plan-Width>
+              <Actual-Startup-Time>0.006</Actual-Startup-Time>
+              <Actual-Total-Time>0.032</Actual-Total-Time>
+              <Actual-Rows>198</Actual-Rows>
+              <Actual-Loops>1</Actual-Loops>
+              <Output>
+                <Item>u.rolname</Item>
+                <Item>u.oid</Item>
+              </Output>
+              <Shared-Hit-Blocks>4</Shared-Hit-Blocks>
+              <Shared-Read-Blocks>0</Shared-Read-Blocks>
+              <Shared-Dirtied-Blocks>0</Shared-Dirtied-Blocks>
+              <Shared-Written-Blocks>0</Shared-Written-Blocks>
+              <Local-Hit-Blocks>0</Local-Hit-Blocks>
+              <Local-Read-Blocks>0</Local-Read-Blocks>
+              <Local-Dirtied-Blocks>0</Local-Dirtied-Blocks>
+              <Local-Written-Blocks>0</Local-Written-Blocks>
+              <Temp-Read-Blocks>0</Temp-Read-Blocks>
+              <Temp-Written-Blocks>0</Temp-Written-Blocks>
+              <I-O-Read-Time>0.000</I-O-Read-Time>
+              <I-O-Write-Time>0.000</I-O-Write-Time>
+            </Plan>
+          </Plans>
+        </Plan>
+      </Plans>
+    </Plan>
+    <Planning-Time>0.204</Planning-Time>
+    <Triggers>
+    </Triggers>
+    <Execution-Time>0.282</Execution-Time>
+  </Query>
+</explain></Element>
+            </Elements>
+          </ProfilerResult>
+          <ProfilerResult Date="2023-04-11 08:50:10Z" DisplayName="" Duration="0">
+            <SQL>SELECT psa.datname, psa.usename, psa.wait_event_type, psa.wait_event,psa.backend_type,
+query
+FROM pg_stat_activity psa
+WHERE psa.wait_event_type IS NOT NULL
+AND psa.wait_event_type NOT IN ('Activity', 'Client');</SQL>
+            <Properties>
+              <PropertiesRow>
+                <Name>ConnectionString</Name>
+                <Value>user id=jlove;host=db-server-03.twa.ateb.com;port=5432;database=ateb;unicode=True;connection timeout=15;default command timeout=30;integrated security=False;ssh host=db-access-01.twa.ateb.com;ssh port=22;ssh user=jlove;ssh authentication type=Password</Value>
+              </PropertiesRow>
+              <PropertiesRow>
+                <Name>ServerVersion</Name>
+                <Value>11.8</Value>
+              </PropertiesRow>
+              <PropertiesRow>
+                <Name>ProfilingResultTime</Name>
+                <Value>8:50:10 AM 4/11/2023</Value>
+              </PropertiesRow>
+            </Properties>
+            <Elements>
+              <Element Name="SELECT psa.datname, psa.usename, psa.wait_event_type, psa.wait_event,psa.backend_type,&#xD;&#xA;query&#xD;&#xA;FROM pg_stat_activity psa&#xD;&#xA;WHERE psa.wait_event_type IS NOT NULL&#xD;&#xA;AND psa.wait_event_type NOT IN ('Activity', 'Client');" TextFormat="False"><explain xmlns="http://www.postgresql.org/2009/explain">
+  <Query>
+    <Plan>
+      <Node-Type>Hash Join</Node-Type>
+      <Parallel-Aware>false</Parallel-Aware>
+      <Join-Type>Left</Join-Type>
+      <Startup-Cost>39.35</Startup-Cost>
+      <Total-Cost>50.49</Total-Cost>
+      <Plan-Rows>98</Plan-Rows>
+      <Plan-Width>256</Plan-Width>
+      <Actual-Startup-Time>0.247</Actual-Startup-Time>
+      <Actual-Total-Time>0.252</Actual-Total-Time>
+      <Actual-Rows>2</Actual-Rows>
+      <Actual-Loops>1</Actual-Loops>
+      <Output>
+        <Item>d.datname</Item>
+        <Item>u.rolname</Item>
+        <Item>s.wait_event_type</Item>
+        <Item>s.wait_event</Item>
+        <Item>s.backend_type</Item>
+        <Item>s.query</Item>
+      </Output>
+      <Inner-Unique>true</Inner-Unique>
+      <Hash-Cond>(s.usesysid = u.oid)</Hash-Cond>
+      <Shared-Hit-Blocks>5</Shared-Hit-Blocks>
+      <Shared-Read-Blocks>0</Shared-Read-Blocks>
+      <Shared-Dirtied-Blocks>0</Shared-Dirtied-Blocks>
+      <Shared-Written-Blocks>0</Shared-Written-Blocks>
+      <Local-Hit-Blocks>0</Local-Hit-Blocks>
+      <Local-Read-Blocks>0</Local-Read-Blocks>
+      <Local-Dirtied-Blocks>0</Local-Dirtied-Blocks>
+      <Local-Written-Blocks>0</Local-Written-Blocks>
+      <Temp-Read-Blocks>0</Temp-Read-Blocks>
+      <Temp-Written-Blocks>0</Temp-Written-Blocks>
+      <I-O-Read-Time>0.000</I-O-Read-Time>
+      <I-O-Write-Time>0.000</I-O-Write-Time>
+      <Plans>
+        <Plan>
+          <Node-Type>Hash Join</Node-Type>
+          <Parent-Relationship>Outer</Parent-Relationship>
+          <Parallel-Aware>false</Parallel-Aware>
+          <Join-Type>Left</Join-Type>
+          <Startup-Cost>1.69</Startup-Cost>
+          <Total-Cost>11.80</Total-Cost>
+          <Plan-Rows>98</Plan-Rows>
+          <Plan-Width>196</Plan-Width>
+          <Actual-Startup-Time>0.146</Actual-Startup-Time>
+          <Actual-Total-Time>0.150</Actual-Total-Time>
+          <Actual-Rows>2</Actual-Rows>
+          <Actual-Loops>1</Actual-Loops>
+          <Output>
+            <Item>s.wait_event_type</Item>
+            <Item>s.wait_event</Item>
+            <Item>s.backend_type</Item>
+            <Item>s.query</Item>
+            <Item>s.usesysid</Item>
+            <Item>d.datname</Item>
+          </Output>
+          <Inner-Unique>true</Inner-Unique>
+          <Hash-Cond>(s.datid = d.oid)</Hash-Cond>
+          <Shared-Hit-Blocks>1</Shared-Hit-Blocks>
+          <Shared-Read-Blocks>0</Shared-Read-Blocks>
+          <Shared-Dirtied-Blocks>0</Shared-Dirtied-Blocks>
+          <Shared-Written-Blocks>0</Shared-Written-Blocks>
+          <Local-Hit-Blocks>0</Local-Hit-Blocks>
+          <Local-Read-Blocks>0</Local-Read-Blocks>
+          <Local-Dirtied-Blocks>0</Local-Dirtied-Blocks>
+          <Local-Written-Blocks>0</Local-Written-Blocks>
+          <Temp-Read-Blocks>0</Temp-Read-Blocks>
+          <Temp-Written-Blocks>0</Temp-Written-Blocks>
+          <I-O-Read-Time>0.000</I-O-Read-Time>
+          <I-O-Write-Time>0.000</I-O-Write-Time>
+          <Plans>
+            <Plan>
+              <Node-Type>Function Scan</Node-Type>
+              <Parent-Relationship>Outer</Parent-Relationship>
+              <Parallel-Aware>false</Parallel-Aware>
+              <Function-Name>pg_stat_get_activity</Function-Name>
+              <Schema>pg_catalog</Schema>
+              <Alias>s</Alias>
+              <Startup-Cost>0.01</Startup-Cost>
+              <Total-Cost>9.01</Total-Cost>
+              <Plan-Rows>98</Plan-Rows>
+              <Plan-Width>136</Plan-Width>
+              <Actual-Startup-Time>0.109</Actual-Startup-Time>
+              <Actual-Total-Time>0.113</Actual-Total-Time>
+              <Actual-Rows>2</Actual-Rows>
+              <Actual-Loops>1</Actual-Loops>
+              <Output>
+                <Item>s.datid</Item>
+                <Item>s.pid</Item>
+                <Item>s.usesysid</Item>
+                <Item>s.application_name</Item>
+                <Item>s.state</Item>
+                <Item>s.query</Item>
+                <Item>s.wait_event_type</Item>
+                <Item>s.wait_event</Item>
+                <Item>s.xact_start</Item>
+                <Item>s.query_start</Item>
+                <Item>s.backend_start</Item>
+                <Item>s.state_change</Item>
+                <Item>s.client_addr</Item>
+                <Item>s.client_hostname</Item>
+                <Item>s.client_port</Item>
+                <Item>s.backend_xid</Item>
+                <Item>s.backend_xmin</Item>
+                <Item>s.backend_type</Item>
+                <Item>s.ssl</Item>
+                <Item>s.sslversion</Item>
+                <Item>s.sslcipher</Item>
+                <Item>s.sslbits</Item>
+                <Item>s.sslcompression</Item>
+                <Item>s.sslclientdn</Item>
+              </Output>
+              <Function-Call>pg_stat_get_activity(NULL::integer)</Function-Call>
+              <Filter>((s.wait_event_type IS NOT NULL) AND (s.wait_event_type &lt;&gt; ALL ('{Activity,Client}'::text[])))</Filter>
+              <Rows-Removed-by-Filter>19</Rows-Removed-by-Filter>
+              <Shared-Hit-Blocks>0</Shared-Hit-Blocks>
+              <Shared-Read-Blocks>0</Shared-Read-Blocks>
+              <Shared-Dirtied-Blocks>0</Shared-Dirtied-Blocks>
+              <Shared-Written-Blocks>0</Shared-Written-Blocks>
+              <Local-Hit-Blocks>0</Local-Hit-Blocks>
+              <Local-Read-Blocks>0</Local-Read-Blocks>
+              <Local-Dirtied-Blocks>0</Local-Dirtied-Blocks>
+              <Local-Written-Blocks>0</Local-Written-Blocks>
+              <Temp-Read-Blocks>0</Temp-Read-Blocks>
+              <Temp-Written-Blocks>0</Temp-Written-Blocks>
+              <I-O-Read-Time>0.000</I-O-Read-Time>
+              <I-O-Write-Time>0.000</I-O-Write-Time>
+            </Plan>
+            <Plan>
+              <Node-Type>Hash</Node-Type>
+              <Parent-Relationship>Inner</Parent-Relationship>
+              <Parallel-Aware>false</Parallel-Aware>
+              <Startup-Cost>1.32</Startup-Cost>
+              <Total-Cost>1.32</Total-Cost>
+              <Plan-Rows>4</Plan-Rows>
+              <Plan-Width>68</Plan-Width>
+              <Actual-Startup-Time>0.030</Actual-Startup-Time>
+              <Actual-Total-Time>0.030</Actual-Total-Time>
+              <Actual-Rows>4</Actual-Rows>
+              <Actual-Loops>1</Actual-Loops>
+              <Output>
+                <Item>d.datname</Item>
+                <Item>d.oid</Item>
+              </Output>
+              <Hash-Buckets>1024</Hash-Buckets>
+              <Original-Hash-Buckets>1024</Original-Hash-Buckets>
+              <Hash-Batches>1</Hash-Batches>
+              <Original-Hash-Batches>1</Original-Hash-Batches>
+              <Peak-Memory-Usage>9</Peak-Memory-Usage>
+              <Shared-Hit-Blocks>1</Shared-Hit-Blocks>
+              <Shared-Read-Blocks>0</Shared-Read-Blocks>
+              <Shared-Dirtied-Blocks>0</Shared-Dirtied-Blocks>
+              <Shared-Written-Blocks>0</Shared-Written-Blocks>
+              <Local-Hit-Blocks>0</Local-Hit-Blocks>
+              <Local-Read-Blocks>0</Local-Read-Blocks>
+              <Local-Dirtied-Blocks>0</Local-Dirtied-Blocks>
+              <Local-Written-Blocks>0</Local-Written-Blocks>
+              <Temp-Read-Blocks>0</Temp-Read-Blocks>
+              <Temp-Written-Blocks>0</Temp-Written-Blocks>
+              <I-O-Read-Time>0.000</I-O-Read-Time>
+              <I-O-Write-Time>0.000</I-O-Write-Time>
+              <Plans>
+                <Plan>
+                  <Node-Type>Seq Scan</Node-Type>
+                  <Parent-Relationship>Outer</Parent-Relationship>
+                  <Parallel-Aware>false</Parallel-Aware>
+                  <Relation-Name>pg_database</Relation-Name>
+                  <Schema>pg_catalog</Schema>
+                  <Alias>d</Alias>
+                  <Startup-Cost>0.00</Startup-Cost>
+                  <Total-Cost>1.32</Total-Cost>
+                  <Plan-Rows>4</Plan-Rows>
+                  <Plan-Width>68</Plan-Width>
+                  <Actual-Startup-Time>0.025</Actual-Startup-Time>
+                  <Actual-Total-Time>0.027</Actual-Total-Time>
+                  <Actual-Rows>4</Actual-Rows>
+                  <Actual-Loops>1</Actual-Loops>
+                  <Output>
+                    <Item>d.datname</Item>
+                    <Item>d.oid</Item>
+                  </Output>
+                  <Shared-Hit-Blocks>1</Shared-Hit-Blocks>
+                  <Shared-Read-Blocks>0</Shared-Read-Blocks>
+                  <Shared-Dirtied-Blocks>0</Shared-Dirtied-Blocks>
+                  <Shared-Written-Blocks>0</Shared-Written-Blocks>
+                  <Local-Hit-Blocks>0</Local-Hit-Blocks>
+                  <Local-Read-Blocks>0</Local-Read-Blocks>
+                  <Local-Dirtied-Blocks>0</Local-Dirtied-Blocks>
+                  <Local-Written-Blocks>0</Local-Written-Blocks>
+                  <Temp-Read-Blocks>0</Temp-Read-Blocks>
+                  <Temp-Written-Blocks>0</Temp-Written-Blocks>
+                  <I-O-Read-Time>0.000</I-O-Read-Time>
+                  <I-O-Write-Time>0.000</I-O-Write-Time>
+                </Plan>
+              </Plans>
+            </Plan>
+          </Plans>
+        </Plan>
+        <Plan>
+          <Node-Type>Hash</Node-Type>
+          <Parent-Relationship>Inner</Parent-Relationship>
+          <Parallel-Aware>false</Parallel-Aware>
+          <Startup-Cost>19.84</Startup-Cost>
+          <Total-Cost>19.84</Total-Cost>
+          <Plan-Rows>198</Plan-Rows>
+          <Plan-Width>68</Plan-Width>
+          <Actual-Startup-Time>0.083</Actual-Startup-Time>
+          <Actual-Total-Time>0.083</Actual-Total-Time>
+          <Actual-Rows>198</Actual-Rows>
+          <Actual-Loops>1</Actual-Loops>
+          <Output>
+            <Item>u.rolname</Item>
+            <Item>u.oid</Item>
+          </Output>
+          <Hash-Buckets>1024</Hash-Buckets>
+          <Original-Hash-Buckets>1024</Original-Hash-Buckets>
+          <Hash-Batches>1</Hash-Batches>
+          <Original-Hash-Batches>1</Original-Hash-Batches>
+          <Peak-Memory-Usage>28</Peak-Memory-Usage>
+          <Shared-Hit-Blocks>4</Shared-Hit-Blocks>
+          <Shared-Read-Blocks>0</Shared-Read-Blocks>
+          <Shared-Dirtied-Blocks>0</Shared-Dirtied-Blocks>
+          <Shared-Written-Blocks>0</Shared-Written-Blocks>
+          <Local-Hit-Blocks>0</Local-Hit-Blocks>
+          <Local-Read-Blocks>0</Local-Read-Blocks>
+          <Local-Dirtied-Blocks>0</Local-Dirtied-Blocks>
+          <Local-Written-Blocks>0</Local-Written-Blocks>
+          <Temp-Read-Blocks>0</Temp-Read-Blocks>
+          <Temp-Written-Blocks>0</Temp-Written-Blocks>
+          <I-O-Read-Time>0.000</I-O-Read-Time>
+          <I-O-Write-Time>0.000</I-O-Write-Time>
+          <Plans>
+            <Plan>
+              <Node-Type>Seq Scan</Node-Type>
+              <Parent-Relationship>Outer</Parent-Relationship>
+              <Parallel-Aware>false</Parallel-Aware>
+              <Relation-Name>pg_authid</Relation-Name>
+              <Schema>pg_catalog</Schema>
+              <Alias>u</Alias>
+              <Startup-Cost>0.00</Startup-Cost>
+              <Total-Cost>19.84</Total-Cost>
+              <Plan-Rows>198</Plan-Rows>
+              <Plan-Width>68</Plan-Width>
+              <Actual-Startup-Time>0.008</Actual-Startup-Time>
+              <Actual-Total-Time>0.040</Actual-Total-Time>
+              <Actual-Rows>198</Actual-Rows>
+              <Actual-Loops>1</Actual-Loops>
+              <Output>
+                <Item>u.rolname</Item>
+                <Item>u.oid</Item>
+              </Output>
+              <Shared-Hit-Blocks>4</Shared-Hit-Blocks>
+              <Shared-Read-Blocks>0</Shared-Read-Blocks>
+              <Shared-Dirtied-Blocks>0</Shared-Dirtied-Blocks>
+              <Shared-Written-Blocks>0</Shared-Written-Blocks>
+              <Local-Hit-Blocks>0</Local-Hit-Blocks>
+              <Local-Read-Blocks>0</Local-Read-Blocks>
+              <Local-Dirtied-Blocks>0</Local-Dirtied-Blocks>
+              <Local-Written-Blocks>0</Local-Written-Blocks>
+              <Temp-Read-Blocks>0</Temp-Read-Blocks>
+              <Temp-Written-Blocks>0</Temp-Written-Blocks>
+              <I-O-Read-Time>0.000</I-O-Read-Time>
+              <I-O-Write-Time>0.000</I-O-Write-Time>
+            </Plan>
+          </Plans>
+        </Plan>
+      </Plans>
+    </Plan>
+    <Planning-Time>0.198</Planning-Time>
+    <Triggers>
+    </Triggers>
+    <Execution-Time>0.304</Execution-Time>
+  </Query>
+</explain></Element>
+            </Elements>
+          </ProfilerResult>
+        </ProfilerHistory>
+      </Data>
+    </View>
+    <View Name="PivotGrid" Visible="True">
+      <Data>
+        <NativePivotGrid>
+          <DataSource Visible="True" Width="100" />
+          <XtraSerializer version="1.0" application="PivotGrid">
+  <property name="#LayoutVersion" />
+  <property name="#LayoutScaleFactor">@4,Width=1.75@4,Height=1.75</property>
+  <property name="FixedColumnFieldValues" iskey="true" value="0" />
+  <property name="Fields" iskey="true" value="6">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="CustomTotals" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true" />
+      </property>
+      <property name="ImageIndex">-1</property>
+      <property name="ToolTips" isnull="true" iskey="true">
+        <property name="HeaderText" />
+        <property name="ValueText" />
+      </property>
+      <property name="FieldEditName" />
+      <property name="Name">Xdatname</property>
+      <property name="FieldName">datname</property>
+      <property name="Caption">datname</property>
+      <property name="TotalsVisibility">CustomTotals</property>
+      <property name="Tag" isnull="true" />
+      <property name="Index">0</property>
+      <property name="MinWidth">35</property>
+      <property name="Width">175</property>
+      <property name="Visible">false</property>
+    </property>
+    <property name="Item2" isnull="true" iskey="true">
+      <property name="CustomTotals" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true" />
+      </property>
+      <property name="ImageIndex">-1</property>
+      <property name="ToolTips" isnull="true" iskey="true">
+        <property name="HeaderText" />
+        <property name="ValueText" />
+      </property>
+      <property name="FieldEditName" />
+      <property name="Name">Xusename</property>
+      <property name="FieldName">usename</property>
+      <property name="Caption">usename</property>
+      <property name="TotalsVisibility">CustomTotals</property>
+      <property name="Tag" isnull="true" />
+      <property name="Index">1</property>
+      <property name="MinWidth">35</property>
+      <property name="Width">175</property>
+      <property name="Visible">false</property>
+    </property>
+    <property name="Item3" isnull="true" iskey="true">
+      <property name="CustomTotals" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true" />
+      </property>
+      <property name="ImageIndex">-1</property>
+      <property name="ToolTips" isnull="true" iskey="true">
+        <property name="HeaderText" />
+        <property name="ValueText" />
+      </property>
+      <property name="FieldEditName" />
+      <property name="Name">Xwait_event_type</property>
+      <property name="FieldName">wait_event_type</property>
+      <property name="Caption">wait_event_type</property>
+      <property name="TotalsVisibility">CustomTotals</property>
+      <property name="Tag" isnull="true" />
+      <property name="Index">2</property>
+      <property name="MinWidth">35</property>
+      <property name="Width">175</property>
+      <property name="Visible">false</property>
+    </property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="CustomTotals" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true" />
+      </property>
+      <property name="ImageIndex">-1</property>
+      <property name="ToolTips" isnull="true" iskey="true">
+        <property name="HeaderText" />
+        <property name="ValueText" />
+      </property>
+      <property name="FieldEditName" />
+      <property name="Name">Xwait_event</property>
+      <property name="FieldName">wait_event</property>
+      <property name="Caption">wait_event</property>
+      <property name="TotalsVisibility">CustomTotals</property>
+      <property name="Tag" isnull="true" />
+      <property name="Index">3</property>
+      <property name="MinWidth">35</property>
+      <property name="Width">175</property>
+      <property name="Visible">false</property>
+    </property>
+    <property name="Item5" isnull="true" iskey="true">
+      <property name="CustomTotals" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true" />
+      </property>
+      <property name="ImageIndex">-1</property>
+      <property name="ToolTips" isnull="true" iskey="true">
+        <property name="HeaderText" />
+        <property name="ValueText" />
+      </property>
+      <property name="FieldEditName" />
+      <property name="Name">Xbackend_type</property>
+      <property name="FieldName">backend_type</property>
+      <property name="Caption">backend_type</property>
+      <property name="TotalsVisibility">CustomTotals</property>
+      <property name="Tag" isnull="true" />
+      <property name="Index">4</property>
+      <property name="MinWidth">35</property>
+      <property name="Width">175</property>
+      <property name="Visible">false</property>
+    </property>
+    <property name="Item6" isnull="true" iskey="true">
+      <property name="CustomTotals" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true" />
+      </property>
+      <property name="ImageIndex">-1</property>
+      <property name="ToolTips" isnull="true" iskey="true">
+        <property name="HeaderText" />
+        <property name="ValueText" />
+      </property>
+      <property name="FieldEditName" />
+      <property name="Name">Xquery</property>
+      <property name="FieldName">query</property>
+      <property name="Caption">query</property>
+      <property name="TotalsVisibility">CustomTotals</property>
+      <property name="Tag" isnull="true" />
+      <property name="Index">5</property>
+      <property name="MinWidth">35</property>
+      <property name="Width">175</property>
+      <property name="Visible">false</property>
+    </property>
+  </property>
+  <property name="Prefilter" isnull="true" iskey="true">
+    <property name="Enabled">true</property>
+  </property>
+  <property name="OptionsBehavior" isnull="true" iskey="true">
+    <property name="HorizontalScrolling">Control</property>
+  </property>
+  <property name="OptionsCustomization" isnull="true" iskey="true">
+    <property name="AllowHideFields">Always</property>
+  </property>
+  <property name="OptionsChartDataSource" isnull="true" iskey="true">
+    <property name="FieldValuesProvideMode">DisplayText</property>
+  </property>
+  <property name="OptionsView" isnull="true" iskey="true">
+    <property name="FilterSeparatorBarPadding">2</property>
+  </property>
+  <property name="FixedLineWidth">2</property>
+  <property name="Groups" iskey="true" value="0" />
+  <property name="FormatRules" iskey="true" value="0" />
+  <property name="FormatConditions" iskey="true" value="0" />
+</XtraSerializer>
+        </NativePivotGrid>
+        <NativeChart Visible="False" Width="202">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;ChartXmlSerializer version="22.1.5.0"&gt;
+  &lt;Chart AppearanceNameSerializable="Default" SelectionMode="None" SeriesSelectionMode="Series"&gt;
+    &lt;DataContainer BoundSeriesSorting="None" ValidateDataMembers="true"&gt;
+      &lt;SeriesTemplate /&gt;
+    &lt;/DataContainer&gt;
+    &lt;Legend CrosshairContentOffset="4" MaxCrosshairContentWidth="50" MaxCrosshairContentHeight="0" /&gt;
+  &lt;/Chart&gt;
+&lt;/ChartXmlSerializer&gt;</NativeChart>
+      </Data>
+    </View>
+  </Views>
+</Document>
